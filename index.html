@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<title>Hangman-Game</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+
+	<header>
+		
+	</header>
+	<div id="imgDiv">
+		<!--Image  Area-->
+	</div>
+	<div id="playerSide">
+		<!-- try to make a main menu and then have it switch -->
+		<div id="infoSection">
+			<h1> Hangman! </h1>
+			<hr/>
+
+			<h3>Wins:</h3>
+			<label id="numWin" style="display: inline;">0</label>
+			
+			<br/>
+			
+			<h3>Lose:</h3>
+			<label id="numLose" style="display: inline;">0</label>
+			
+			<br/>
+			
+			<p id="wordPlace"></p>
+			<p id="wrongLetter" style="color:red"></p>
+
+		</div>
+		<div id="playerControls">
+			<p> Type your letter in the box below. Then click to see if it present in the word. </p>
+			<p> Here are the letters you have already tried:<br/> <span id="usedLetters"></span></p>
+			<input type="text" name="Letter_Choice_Box" id="letterChoice"/>
+			<button id="wordChecker" onclick="HangmanObject.checkLetter()">Check</button>
+		</div>
+	</div>
+
+	<script src="assets/javascript/game.js"> </script>
+</body>
+
+</html>
