@@ -1,3 +1,39 @@
+header{
+	text-align: center;
+}
+
 h3{
 	display: inline-block;
+}
+
+img{
+	display: none;
+}
+
+.col-md-6{
+	border:1px solid red;
+	padding: 10px;
+}
+
+/*Player Section*/
+label{
+	display: inline;
+	font-size: 24px;
+}
+
+#wrongLetter{
+	color: red;
+}
+
+/*Answer Section*/
+#outcomeWin{
+	display: none;
+}
+
+#outcomeLose{
+	display: none;
+}
+
+#wordAns{
+	font-size: 24px;
 }
