@@ -28,10 +28,14 @@ var BurjKhalifa = new Word("Burj Khalifa", "assets/images/Burj_Khalifa.jpg" , "h
 var EmpireStateBuilding = new Word("Empire State Building" , "assets/images/EmpireStateBuilding.jpg" , "https://en.wikipedia.org/wiki/Empire_State_Building", "New York, USA")
 var GermanCastle = new Word("Neuschwanstein Castle" , "assets/images/GermanCastle.jpg" , "https://en.wikipedia.org/wiki/Neuschwanstein_Castle" , "Bavaria, Germany");
 var CNTower = new Word("CN Tower", "assets/images/CNTower.jpg" , "https://en.wikipedia.org/wiki/CN_Tower", "Toronto, Canada");
+var GoldenGate = new Word("The Golden Gate Bridge" , "assets/images/GoldenGateBridge.jpg", "https://en.wikipedia.org/wiki/Golden_Gate_Bridge", "San Francisco, USA")
+var Alhambra = new Word("Alhambra","assets/images/Alhambra.jpg","https://en.wikipedia.org/wiki/Alhambra","Granada, Spain");
+var Venice = new Word("Piazza San Marco", "assets/images/Venice.JPG" , "https://en.wikipedia.org/wiki/Piazza_San_Marco", "Venice, Italy");
+var Louvre = new Word("The Louvre", "assets/images/Louvre.jpg" , "https://en.wikipedia.org/wiki/Louvre" , "Paris, France");
 
 //Word arrays
-var easyWords = [Eiffel_Tower, CNTower, Big_Ben, Leaning_Tower_of_Pisa, Pyramids_of_Giza, OperaHouse ,Lighthouse_Alexandria, EmpireStateBuilding];
-var hardWords = [HagiaSophia, GreatWall, PorcelainTower, Petra, ChichenItza, MachuPicchu, HimejiCastle, BurjKhalifa, GermanCastle];
+var easyWords = [Eiffel_Tower, CNTower, Big_Ben, Leaning_Tower_of_Pisa, Pyramids_of_Giza, OperaHouse ,Lighthouse_Alexandria, EmpireStateBuilding, Alhambra];
+var hardWords = [HagiaSophia, GreatWall, PorcelainTower, Petra, ChichenItza, MachuPicchu, HimejiCastle, BurjKhalifa, GermanCastle, GoldenGate, Louvre, Venice];
 
 //Hangman Object- handles game logic
 var HangmanObject = {
@@ -95,7 +99,6 @@ var HangmanObject = {
 			return true;
 		}else{
 			if(this.guessLimit === 0){
-				console.log("Game Over");
 				loseScore += 1;
 				document.getElementById("numLose").innerHTML = loseScore;
 				this.UpdateAnsDiv("ansHeader", "outcomeLose", "wordAns" , "ansImg", "ansDescription");
