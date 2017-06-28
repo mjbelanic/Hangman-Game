@@ -34,8 +34,8 @@ var Venice = new Word("Piazza San Marco", "assets/images/Venice.JPG" , "https://
 var Louvre = new Word("The Louvre", "assets/images/Louvre.jpg" , "https://en.wikipedia.org/wiki/Louvre" , "Paris, France");
 
 //Word arrays
-var easyWords = [Eiffel_Tower, CNTower, Big_Ben, Leaning_Tower_of_Pisa, Pyramids_of_Giza, OperaHouse ,Lighthouse_Alexandria, EmpireStateBuilding, Alhambra];
-var hardWords = [HagiaSophia, GreatWall, PorcelainTower, Petra, ChichenItza, MachuPicchu, HimejiCastle, BurjKhalifa, GermanCastle, GoldenGate, Louvre, Venice];
+var easyWords = [Eiffel_Tower, CNTower, Big_Ben, Leaning_Tower_of_Pisa, Pyramids_of_Giza, OperaHouse ,Lighthouse_Alexandria, EmpireStateBuilding, Alhambra, GoldenGate];
+var hardWords = [HagiaSophia, GreatWall, PorcelainTower, Petra, ChichenItza, MachuPicchu, HimejiCastle, BurjKhalifa, GermanCastle, Louvre, Venice];
 
 //Hangman Object- handles game logic
 var HangmanObject = {
