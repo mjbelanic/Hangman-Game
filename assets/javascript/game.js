@@ -163,12 +163,14 @@ var HangmanObject = {
 			explanation.style.display = "none";
 			var explanation2 = document.getElementById("outcomeLose");
 			explanation2.style.display = "none"
+			document.getElementById("ansHeader").innerHTML = "Previous Answer";
 			this.StartGame(hardWords);
 		}else{
 			var explanation = document.getElementById("outcomeWin")
 			explanation.style.display = "none";
 			var explanation2 = document.getElementById("outcomeLose");
 			explanation2.style.display = "none"
+			document.getElementById("ansHeader").innerHTML = "Previous Answer";
 			this.StartGame(easyWords);
 		}
 	},
