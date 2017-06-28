@@ -2,6 +2,7 @@
 <html lang="en-us">
 
 <head>
+	<meta charset="utf-8">
 	<title>Hangman-Game</title>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -9,66 +10,81 @@
 </head>
 <body>
 
-	<header>
-		<h1> Hangman! </h1>
-		<hr/>
-	</header>
+	<div id="wrapper">
 
-	<div class="container">
+		<header>
+			<h1> Hangman! </h1>
+		</header>
+
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-5" id="imgDiv">
+					<div class="row">
+						<div class="col-md-12">
+							<div id="hintDiv">
+								<button id="hintBtn" onclick="HangmanObject.DropHint()"> Press for a hint! </button>
+								<p id="hintText"></p>
+							</div>
+							<h2 id="ansHeader"></h2>
+							<p id="outcomeWin">Congrats you figured it out!</p>
+							<p id="outcomeLose"> Sorry, you did not figure it out in enough guess. The answer was:</p>
+							<p id="wordAns"></p>
+							<img id="ansImg" src="" alt="Image"/>
+							<p id="ansDescription"></p>
+						</div>
+					</div>
+				</div>
+			
+				<div class="col-md-5 col-md-offset-2" id="playerSide">
+					<!-- try to make a main menu and then have it switch -->
+					<div class="row">
+						<div class="col-md-12" id="infoSection">
+							<h3>Wins:</h3>
+							<label id="numWin">0</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12">	
+							<h3>Lose:</h3>
+							<label id="numLose">0</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12">
+							<p id="wordPlace"></p>
+							<p id="wrongLetter"></p>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12" id="playerControls">
+							<p> Type your letter in the box below. Then click to see if it present in the word. All words in this version of hangman are the names of famous or ancient structures around the world.</p>
+							<p> Here are the letters you have already tried:<br/> <span id="usedLetters"></span></p>
+							<input type="text" name="Letter_Choice_Box" id="letterChoice"/>
+							<button id="wordChecker" onclick="HangmanObject.checkLetter()">Check</button>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12">
+							<button id="resetButton" onclick="HangmanObject.ResetGame()">Play Again?</button>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-6" id="imgDiv">
-				<div class="row">
-					<div class="col-md-12">
-						<h2 id="ansHeader"></h2>
-						<p id="outcomeWin">Congrats you figured it out!</p>
-						<p id="outcomeLose"> Sorry, you did not figure it out in enough guess. The answer was:</p>
-						<p id="wordAns"></p>
-						<img id="ansImg" src="" alt="Image"/>
-						<p id="ansDescription"></p>
-					</div>
-				</div>
-				<!--Image  Area-->
-			</div>
-		
-			<div class="col-md-6" id="playerSide">
-				<!-- try to make a main menu and then have it switch -->
-				<div class="row">
-					<div class="col-md-12" id="infoSection">
-						<h3>Wins:</h3>
-						<label id="numWin">0</label>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-md-12">	
-						<h3>Lose:</h3>
-						<label id="numLose">0</label>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-md-12">
-						<p id="wordPlace"></p>
-						<p id="wrongLetter"></p>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-md-12" id="playerControls">
-						<p> Type your letter in the box below. Then click to see if it present in the word. </p>
-						<p> Here are the letters you have already tried:<br/> <span id="usedLetters"></span></p>
-						<input type="text" name="Letter_Choice_Box" id="letterChoice"/>
-						<button id="wordChecker" onclick="HangmanObject.checkLetter()">Check</button>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-md-12">
-						<button id="resetButton" onclick="HangmanObject.ResetGame()">Play Again?</button>
-					</div>
-				</div>
-
-			</div>
+			<footer class="col-md-12">
+				<p> Copyright 2017 Matthew Belanic</p>
+			</footer>
 		</div>
 	</div>
 
