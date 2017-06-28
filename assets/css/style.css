@@ -79,10 +79,6 @@ button:hover{
 	color:  #000B29;
 }
 
-#hintBtn , #hintText{
-	display: inline;
-}
-
 /*Footer*/
 footer{
 	clear: both;
@@ -97,4 +93,14 @@ footer p{
 	font-size: 10px;
 	padding: 20px;
 	text-align: center;
+}
+
+#wordChecker:disabled, #wordChecker:active:hover:not([disabled]){
+	background-color: #D70026;
+	color: #F8F5F2;
+	border: 1px solid #D70026; 
+}
+
+#resetButton, #hintBtn{
+	margin: 10px auto;
 }

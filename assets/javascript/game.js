@@ -1,10 +1,8 @@
 // NEED TO IMPLEMENT:
-// css styling (review)
-// Handle capital letters
-// Get all pictures and descriptions
+// add sound
 
 
-//Word objects
+//Word object constructor
 function Word(nameValue, img, descr, hintValue){
 	this.name = nameValue;
 	this.image = img;
@@ -13,23 +11,29 @@ function Word(nameValue, img, descr, hintValue){
 };
 
 // Word  objects
-var Eiffel_Tower = new Word("Eiffel Tower", "assets/images/EiffelTower.jpg", "", "Paris, France");
-var Big_Ben = new Word("Big Ben", "assets/images/BigBen.jpg", "", "London, England");
-var Leaning_Tower_of_Pisa = new Word("Leaning Tower of Pisa", "assets/images/LeaningTower.jpg", "","Tuscany, Italy");
-var Pyramids_of_Giza = new Word("Pyramids of Giza", "assets/images/GizaPyramids.jpg", "", "Ancient Egypt");
-var Lighthouse_Alexandria = new Word("Lighthouse of Alexandria", "assets/images/LighthouseAlexandria.png", "","Ancient Egypt");
-var HagiaSophia = new Word("Hagia Sophia", "assets/images/HagiaSophia.jpg", "" ,"Istanbul, Turkey");
-var GreatWall = new Word("Great Wall of China", "assets/images/GreatWall.jpg" ,"" ,"China");
-var PorcelainTower = new Word("Porcelain Tower of Nanjing" , "assets/images/PorcelainTower.jpg" , "" , "Nanjing, China");
-var Petra = new Word("Petra" , "assets/images/Petra.jpg" , "", "Ma'an Governorate, Jordan");
-var ChichenItza = new Word("Chichen Itza" , "assets/images/ChichenItza.jpg", "",  "Yucatan, Mexico");
-var MachuPicchu = new Word("Machu Picchu" , "assets/images/MachuPicchu.jpg", "", "Cuzco Region, Peru");
-var HimejiCastle = new Word("Himeji Castle", "assets/images/HimejiCastle.jpg", "", "Hyogo, Japan");
+var Eiffel_Tower = new Word("Eiffel Tower", "assets/images/EiffelTower.jpg", "https://en.wikipedia.org/wiki/Eiffel_Tower", "Paris, France");
+var Big_Ben = new Word("Big Ben", "assets/images/BigBen.jpg", "https://en.wikipedia.org/wiki/Big_Ben", "London, England");
+var Leaning_Tower_of_Pisa = new Word("Leaning Tower of Pisa", "assets/images/LeaningTower.jpg", "https://en.wikipedia.org/wiki/Leaning_Tower_of_Pisa","Tuscany, Italy");
+var Pyramids_of_Giza = new Word("Pyramids of Giza", "assets/images/GizaPyramids.jpg", "https://en.wikipedia.org/wiki/Giza_pyramid_complex", "Ancient Egypt");
+var Lighthouse_Alexandria = new Word("Pharos of Alexandria", "assets/images/LighthouseAlexandria.png", "https://en.wikipedia.org/wiki/Lighthouse_of_Alexandria","Ancient Egypt");
+var HagiaSophia = new Word("Hagia Sophia", "assets/images/HagiaSophia.jpg", "https://en.wikipedia.org/wiki/Hagia_Sophia" ,"Istanbul, Turkey");
+var GreatWall = new Word("Great Wall of China", "assets/images/GreatWall.jpg" ,"https://en.wikipedia.org/wiki/Great_Wall_of_China" ,"China");
+var PorcelainTower = new Word("Porcelain Tower of Nanjing" , "assets/images/PorcelainTower.jpg" , "https://en.wikipedia.org/wiki/Porcelain_Tower_of_Nanjing" , "Nanjing, China");
+var Petra = new Word("Petra" , "assets/images/Petra.jpg" , "https://en.wikipedia.org/wiki/Petra", "Ma'an Governorate, Jordan");
+var ChichenItza = new Word("Chichen Itza" , "assets/images/ChichenItza.jpg", "https://en.wikipedia.org/wiki/Chichen_Itza",  "Yucatan, Mexico");
+var MachuPicchu = new Word("Machu Picchu" , "assets/images/MacchuPicchu.jpg" , "https://en.wikipedia.org/wiki/Machu_Picchu", "Cuzco Region, Peru");
+var HimejiCastle = new Word("Himeji Castle", "assets/images/HimejiCastle.jpg", "https://en.wikipedia.org/wiki/Himeji_Castle", "Hyogo, Japan");
+var OperaHouse = new Word("Sydney Opera House", "assets/images/OperaHouse.jpg" , "https://en.wikipedia.org/wiki/Sydney_Opera_House", "the most populated city in Australia")
+var BurjKhalifa = new Word("Burj Khalifa", "assets/images/Burj_Khalifa.jpg" , "https://en.wikipedia.org/wiki/Burj_Khalifa", "Dubai, United Arab Emirates")
+var EmpireStateBuilding = new Word("Empire State Building" , "assets/images/EmpireStateBuilding.jpg" , "https://en.wikipedia.org/wiki/Empire_State_Building", "New York, USA")
+var GermanCastle = new Word("Neuschwanstein Castle" , "assets/images/GermanCastle.jpg" , "https://en.wikipedia.org/wiki/Neuschwanstein_Castle" , "Bavaria, Germany");
+var CNTower = new Word("CN Tower", "assets/images/CNTower.jpg" , "https://en.wikipedia.org/wiki/CN_Tower", "Toronto, Canada");
 
 //Word arrays
-var easyWords = [Eiffel_Tower , Big_Ben, Leaning_Tower_of_Pisa, Pyramids_of_Giza, Lighthouse_Alexandria];
-var hardWords = [HagiaSophia, GreatWall, PorcelainTower, Petra, ChichenItza, MachuPicchu, HimejiCastle];
+var easyWords = [Eiffel_Tower, CNTower, Big_Ben, Leaning_Tower_of_Pisa, Pyramids_of_Giza, OperaHouse ,Lighthouse_Alexandria, EmpireStateBuilding];
+var hardWords = [HagiaSophia, GreatWall, PorcelainTower, Petra, ChichenItza, MachuPicchu, HimejiCastle, BurjKhalifa, GermanCastle];
 
+//Hangman Object- handles game logic
 var HangmanObject = {
 	//Needed values
 	wordChoice: null,
@@ -47,13 +51,14 @@ var HangmanObject = {
 		this.guessedLetters = []; 
 		this.resetButton.style.display = "none";
 		this.hiddenWord = [];
-		this.hintButton.style.display = "inline";
+		this.hintButton.style.display = "block";
 		this.hintText.innerHTML ="";
 		
 		document.getElementById("wordChecker").disabled = false;
 
 		//Get Random word and hide it.
 		document.getElementById("usedLetters").innerHTML = this.guessedLetters;
+		document.getElementById("wrongLetter").innerHTML = "";
 		this.wordChoice = wordArray[Math.floor(Math.random() * wordArray.length)];
 		for (var i = 0 ; i < this.wordChoice.name.length ; i++) {
 			if(this.wordChoice.name[i] !== " "){
@@ -73,7 +78,8 @@ var HangmanObject = {
 		var imageSrc = document.getElementById(param4);
 		imageSrc.src = this.wordChoice.image;
 		imageSrc.style.display = "block";
-		document.getElementById(param5).innerHTML = this.wordChoice.description;
+		var imageLink = document.getElementById(param5)
+		imageLink.href = this.wordChoice.description;
 		this.resetButton.style.display = "block";
 	},
 
@@ -104,7 +110,8 @@ var HangmanObject = {
 	// Guess
 	checkLetter: function(){
 		var letter = document.getElementById("letterChoice").value;
-		var regex = /^[a-zA-Z]{1}$/;
+		var upperCaseLetter = document.getElementById("letterChoice").value.toUpperCase();
+		var regex = /^[a-z]{1}$/;
 		if(regex.test(letter)){
 			if(this.guessedLetters.includes(letter)){
 				document.getElementById("wrongLetter").innerHTML = "You have already picked this letter."
@@ -113,10 +120,15 @@ var HangmanObject = {
 			}else{	
 				this.guessedLetters.push(letter);
 				document.getElementById("usedLetters").innerHTML = this.guessedLetters;
-				if(this.wordChoice.name.includes(letter)){
+				if(this.wordChoice.name.includes(letter)  || this.wordChoice.name.includes(upperCaseLetter)){
 					for (var j = this.wordChoice.name.length - 1; j >= 0; j--){
 						if(this.wordChoice.name[j] === letter){
 							this.hiddenWord[j] = letter;
+							document.getElementById("wordPlace").innerHTML = this.hiddenWord.join(" ");
+							document.getElementById("wrongLetter").innerHTML = "";
+							document.getElementById("letterChoice").value = "";
+						}else if(this.wordChoice.name[j] === upperCaseLetter){
+							this.hiddenWord[j] = upperCaseLetter;
 							document.getElementById("wordPlace").innerHTML = this.hiddenWord.join(" ");
 							document.getElementById("wrongLetter").innerHTML = "";
 							document.getElementById("letterChoice").value = "";
@@ -131,7 +143,7 @@ var HangmanObject = {
 			}
 		// bad char
 		}else{
-			document.getElementById("wrongLetter").innerHTML = "You have not entered an appropriate character."
+			document.getElementById("wrongLetter").innerHTML = "You have not entered an appropriate character. (Note: Only lower case characters work.)"
 			document.getElementById("letterChoice").value = "";
 		}
 		var gameOver = this.CheckForWin();
