@@ -55,7 +55,7 @@ var HangmanObject = {
 		this.hintText.innerHTML ="";
 		
 		document.getElementById("wordChecker").disabled = false;
-
+		document.getElementById("guesses").innerHTML = this.guessLimit;
 		//Get Random word and hide it.
 		document.getElementById("usedLetters").innerHTML = this.guessedLetters;
 		document.getElementById("wrongLetter").innerHTML = "";
@@ -147,6 +147,7 @@ var HangmanObject = {
 			document.getElementById("letterChoice").value = "";
 		}
 		var gameOver = this.CheckForWin();
+		document.getElementById("guesses").innerHTML = this.guessLimit;
 		if(gameOver){
 			this.resetButton.style.display = "block";
 			this.hintButton.style.display = "none";
