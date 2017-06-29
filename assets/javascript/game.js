@@ -137,7 +137,7 @@ var HangmanObject = {
 							document.getElementById("letterChoice").value = "";
 						}
 					}
-				//good char not in work
+				//good char not in word
 				}else{
 					this.guessLimit -= 1;
 					document.getElementById("wrongLetter").innerHTML = letter + " was not present in word.";
@@ -166,15 +166,19 @@ var HangmanObject = {
 			var explanation = document.getElementById("outcomeWin")
 			explanation.style.display = "none";
 			var explanation2 = document.getElementById("outcomeLose");
-			explanation2.style.display = "none"
-			document.getElementById("ansHeader").innerHTML = "Previous Answer";
+			explanation2.style.display = "none";
+			if(document.getElementById("ansHeader").innerHTML === "Answer"){
+				document.getElementById("ansHeader").innerHTML = "Previous Answer";
+			}
 			this.StartGame(hardWords);
 		}else{
 			var explanation = document.getElementById("outcomeWin")
 			explanation.style.display = "none";
 			var explanation2 = document.getElementById("outcomeLose");
 			explanation2.style.display = "none"
-			document.getElementById("ansHeader").innerHTML = "Previous Answer";
+			if(document.getElementById("ansHeader").innerHTML === "Answer"){
+				document.getElementById("ansHeader").innerHTML = "Previous Answer";
+			}
 			this.StartGame(easyWords);
 		}
 	},
@@ -182,7 +186,11 @@ var HangmanObject = {
 
 	DropHint: function(){
 		this.hintButton.style.display = "none";
-		this.hintText.innerHTML = "This structure is located in: " + this.wordChoice.hint;
+		if(this.wordChoice === null){
+			this.hintText.innerHTML = "You have not started the game yet and there is no hint. Hit the play again button to start.";
+		}else{
+			this.hintText.innerHTML = "This structure is located in: " + this.wordChoice.hint;
+		}
 	}
 };
 

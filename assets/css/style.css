@@ -103,4 +103,5 @@ footer p{
 
 #resetButton, #hintBtn{
 	margin: 10px auto;
+	display: block;
 }
