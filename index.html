@@ -19,9 +19,9 @@
 		<div class="container">
 			<div class="row">
 
-				<div class="col-md-5" id="imgDiv">
+				<div class="col-sm-5" id="imgDiv">
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-sm-12">
 							<div id="hintDiv">
 								<button id="hintBtn" onclick="HangmanObject.DropHint()"> Press for a hint! </button>
 								<p id="hintText"></p>
@@ -37,31 +37,31 @@
 					</div>
 				</div>
 			
-				<div class="col-md-5 col-md-offset-2" id="playerSide">
+				<div class="col-sm-5 col-sm-offset-2" id="playerSide">
 					<!-- try to make a main menu and then have it switch -->
 					<div class="row">
-						<div class="col-md-12" id="infoSection">
+						<div class="col-sm-12" id="infoSection">
 							<h3>Wins:</h3>
 							<label id="numWin">0</label>
 						</div>
 					</div>
 
 					<div class="row">
-						<div class="col-md-12">	
+						<div class="col-sm-12">	
 							<h3>Lose:</h3>
 							<label id="numLose">0</label>
 						</div>
 					</div>
 
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-sm-12">
 							<p id="wordPlace"></p>
 							<p id="wrongLetter"></p>
 						</div>
 					</div>
 
 					<div class="row">
-						<div class="col-md-12" id="playerControls">
+						<div class="col-sm-12" id="playerControls">
 							<p> Type your letter in the box below. Then click to see if it present in the word. All words in this version of hangman are the names of famous or ancient structures around the world. You have <span id="guesses"></span> guesses remaing. Good Luck!</p>
 							<p> Here are the letters you have already tried:<br/> <span id="usedLetters"></span></p>
 							<input type="text" name="Letter_Choice_Box" id="letterChoice"/>
@@ -70,7 +70,7 @@
 					</div>
 
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-sm-12">
 							<button id="resetButton" onclick="HangmanObject.ResetGame()">Play Again?</button>
 						</div>
 					</div>
@@ -81,9 +81,9 @@
 		</div>
 	</div>
 
-	<div class="container-fluid">
+	<div class="container-fluid" data-variablename="">
 		<div class="row">
-			<footer class="col-md-12">
+			<footer class="col-sm-12">
 				<p> Copyright 2017 Matthew Belanic</p>
 			</footer>
 		</div>
