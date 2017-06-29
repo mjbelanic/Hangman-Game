@@ -161,7 +161,7 @@ var HangmanObject = {
 
 
 	ResetGame: function(){
-		var hardMode = confirm("Would you like to play hard mode?")
+		var hardMode = confirm("Would you like to play hard difficulty?")
 		if(hardMode){
 			var explanation = document.getElementById("outcomeWin")
 			explanation.style.display = "none";
@@ -189,7 +189,7 @@ var HangmanObject = {
 //Menu
 var menuAns = confirm("Would you like to play hangman?");
 if(menuAns){
-	var hardMode = confirm("Would you like to play hard mode?")
+	var hardMode = confirm("Would you like to play on hard difficulty?")
 	if(hardMode){
 		HangmanObject.StartGame(hardWords);
 	}else{
