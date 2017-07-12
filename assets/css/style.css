@@ -80,10 +80,13 @@ button:hover{
 }
 
 /*Footer*/
-footer{
+.footer{
 	clear: both;
+	position: absolute;
+	bottom: 0;
 	background-color: #D70026;
     height: 100%;
+    width: 100%
     margin-top: 50px;
     border-top: 10px solid #000B29;
 }
